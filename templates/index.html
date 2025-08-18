@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber Rides Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Uber Rides Prediction</h2>
+        <form action="{{ url_for('predict') }}" method="post">
+            <input class="form_input" type="number" name="Priceperweek" placeholder="Price per Week" required>
+            <input class="form_input" type="number" name="Population" placeholder="Population" required>
+            <input class="form_input" type="number" name="Monthlyincome" placeholder="Monthly Income" required>
+            <input class="form_input" type="number" name="Averageparkingpermonth" placeholder="Average Parking per Month" required>
+            <button type="submit" class="my-btn">Predict Results</button>
+        </form>
+
+        {% if prediction %}
+            <h3>{{ prediction }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
